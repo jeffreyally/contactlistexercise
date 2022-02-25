@@ -14,6 +14,7 @@ export const Modal = props => {
 						<h5 className="modal-title">Are you sure?</h5>
 						{props.onClose ? (
 							<button
+								//copy onClick function to "oh no option"
 								onClick={() => props.onClose()}
 								type="button"
 								className="close"

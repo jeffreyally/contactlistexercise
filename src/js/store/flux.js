@@ -1,4 +1,5 @@
 const getState = ({ getStore, setStore }) => {
+	//your agenda slug name: IWantANiceCodeBeer
 	return {
 		store: {
 			//Your data structures, A.K.A Entities
