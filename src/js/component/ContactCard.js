@@ -7,7 +7,7 @@ export const ContactCard = ({ contactObject, id, onDelete }) => {
 	const [state, setState] = useState({
 		//initialize state here
 	});
-	console.log(contactObject);
+
 	return (
 		<li className="list-group-item" id={id}>
 			<div className="row w-100">

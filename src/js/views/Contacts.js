@@ -9,7 +9,7 @@ export const Contacts = () => {
 		showModal: false
 	});
 	const { store, actions } = useContext(Context);
-	console.log(store.contacts);
+	//console.log(store.contacts);
 	store.contacts.map(contact => {
 		console.log(contact);
 	});
@@ -35,8 +35,14 @@ export const Contacts = () => {
 						})}
 					</ul>
 				</div>
+				{/*the idea below failed but you kept it because the functionality might still be
+				helpful */}
+				<Modal show={state.showModal} onClose={() => setState({ showModal: false })} id={1} />;
 			</div>
-			<Modal show={state.showModal} onClose={() => setState({ showModal: false })} />
 		</div>
 	);
 };
+
+let holdit = `{store.contacts.map((contact, index) => {
+	<Modal show={state.showModal} onClose={() => setState({ showModal: false })} id={index} />;
+})}`;

@@ -20,7 +20,15 @@ const getState = ({ getStore, setStore }) => {
 						//console.log(responseJSON);
 						setStore({ contacts: responseJSON });
 					})
-					.catch(error => console.log("Error:", error))
+					.catch(error => console.log("Error:", error)),
+
+			delete: filtersSecondContact => {
+				const store = getStore();
+
+				console.log(filtersSecondContact);
+
+				return setStore({ contacts: filtersSecondContact });
+			}
 		}
 	};
 };
