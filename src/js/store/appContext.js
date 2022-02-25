@@ -22,15 +22,7 @@ const injectContext = PassedComponent => {
 		);
 
 		useEffect(() => {
-			fetch("https://assets.breatheco.de/apis/fake/contact/agenda/IWantANiceCodeBeer")
-				.then(response => {
-					if (!response.ok) {
-						console.log("Something wrong with the response");
-					}
-					return response.json();
-				})
-				.then(JSONresponse => console.log(JSONresponse))
-				.catch(error => console.log("Check your error", error));
+			state.actions.loadcharacters();
 		}, []);
 
 		// the initial value for the context its not null anymore, but the current state of this component,
