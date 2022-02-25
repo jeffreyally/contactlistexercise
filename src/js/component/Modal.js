@@ -46,6 +46,7 @@ export const Modal = props => {
 								});
 
 								actions.delete(filtersSecondContact);
+								props.onClose();
 							}}>
 							Do it!
 						</button>
