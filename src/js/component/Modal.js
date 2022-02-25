@@ -40,8 +40,9 @@ export const Modal = props => {
 							data-dismiss="modal"
 							onClick={() => {
 								//props.id
+
 								let filtersSecondContact = store.contacts.filter((contact, index) => {
-									return index != props.id;
+									return index != props.IndexOfContactToBeDeleted;
 								});
 
 								actions.delete(filtersSecondContact);
@@ -62,7 +63,7 @@ Modal.propTypes = {
 	history: PropTypes.object,
 	onClose: PropTypes.func,
 	show: PropTypes.bool,
-	id: PropTypes.number
+	IndexOfContactToBeDeleted: PropTypes.number
 };
 
 /**

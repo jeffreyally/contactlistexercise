@@ -3,13 +3,24 @@ import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import MikePhoto from "../../img/m101.jpg";
 
-export const ContactCard = ({ contactObject, id, onDelete }) => {
+export const ContactCard = ({
+	contactObject,
+	indexfrommap,
+	onDelete,
+	setIndexOfContactToBeDeleted,
+	IndexOfContactToBeDeleted
+}) => {
 	const [state, setState] = useState({
 		//initialize state here
 	});
 
+	var deleteAndSetID = indexfrommap => {
+		onDelete();
+		setIndexOfContactToBeDeleted(indexfrommap);
+	};
+
 	return (
-		<li className="list-group-item" id={id}>
+		<li className="list-group-item" id={indexfrommap}>
 			<div className="row w-100">
 				<div className="col-12 col-sm-6 col-md-3 px-0">
 					<img src={MikePhoto} alt="Mike Anamendolla" className="rounded-circle mx-auto d-block img-fluid" />
@@ -19,7 +30,7 @@ export const ContactCard = ({ contactObject, id, onDelete }) => {
 						<button className="btn">
 							<i className="fas fa-pencil-alt mr-3" />
 						</button>
-						<button className="btn" onClick={() => onDelete()}>
+						<button className="btn" onClick={() => deleteAndSetID(indexfrommap)}>
 							<i className="fas fa-trash-alt" />
 						</button>
 					</div>
@@ -56,7 +67,9 @@ export const ContactCard = ({ contactObject, id, onDelete }) => {
 ContactCard.propTypes = {
 	history: PropTypes.object,
 	onDelete: PropTypes.func,
-	id: PropTypes.number,
+	setIndexOfContactToBeDeleted: PropTypes.func,
+	indexfrommap: PropTypes.number,
+	IndexOfContactToBeDeleted: PropTypes.number,
 	contactObject: PropTypes.object
 };
 
@@ -67,3 +80,5 @@ ContactCard.propTypes = {
 ContactCard.defaultProps = {
 	onDelete: null
 };
+// setID(id)
+//

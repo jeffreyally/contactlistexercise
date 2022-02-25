@@ -8,11 +8,13 @@ export const Contacts = () => {
 	const [state, setState] = useState({
 		showModal: false
 	});
+	const [IndexOfContactToBeDeleted, setIndexOfContactToBeDeleted] = useState(4);
+	console.log("The second UseState is at", IndexOfContactToBeDeleted);
 	const { store, actions } = useContext(Context);
 	//console.log(store.contacts);
-	store.contacts.map(contact => {
-		console.log(contact);
-	});
+	// store.contacts.map(contact => {
+	// 	console.log(contact);
+	// });
 	return (
 		<div className="container">
 			<div>
@@ -23,13 +25,15 @@ export const Contacts = () => {
 				</p>
 				<div id="contacts" className="panel-collapse collapse show" aria-expanded="true">
 					<ul className="list-group pull-down" id="contact-list">
-						{store.contacts.map((contact, index) => {
+						{store.contacts.map((contact, indexfrommap) => {
 							return (
 								<ContactCard
 									onDelete={() => setState({ showModal: true })}
 									contactObject={contact}
-									key={index}
-									id={index}
+									key={indexfrommap}
+									indexfrommap={indexfrommap}
+									setIndexOfContactToBeDeleted={setIndexOfContactToBeDeleted}
+									IndexOfContactToBeDeleted={IndexOfContactToBeDeleted}
 								/>
 							);
 						})}
@@ -37,7 +41,11 @@ export const Contacts = () => {
 				</div>
 				{/*the idea below failed but you kept it because the functionality might still be
 				helpful */}
-				<Modal show={state.showModal} onClose={() => setState({ showModal: false })} id={1} />;
+				<Modal
+					show={state.showModal}
+					onClose={() => setState({ showModal: false })}
+					IndexOfContactToBeDeleted={IndexOfContactToBeDeleted}
+				/>
 			</div>
 		</div>
 	);
