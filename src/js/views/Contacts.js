@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-
+import { Context } from "../store/appContext";
 import { ContactCard } from "../component/ContactCard.js";
 import { Modal } from "../component/Modal";
 
@@ -8,7 +8,11 @@ export const Contacts = () => {
 	const [state, setState] = useState({
 		showModal: false
 	});
-
+	const { store, actions } = useContext(Context);
+	console.log(store.contacts);
+	store.contacts.map(contact => {
+		console.log(contact);
+	});
 	return (
 		<div className="container">
 			<div>

@@ -10,13 +10,14 @@ const getState = ({ getStore, setStore }) => {
 			loadcharacters: () =>
 				fetch("https://assets.breatheco.de/apis/fake/contact/agenda/IWantANiceCodeBeer")
 					.then(response => {
-						if (!response.status) {
+						if (!response.ok) {
 							console.log("Check status");
-							return response.JSON;
 						}
+						//console.log(response);
+						return response.json();
 					})
 					.then(responseJSON => {
-						console.log(responseJSON);
+						//console.log(responseJSON);
 						setStore({ contacts: responseJSON });
 					})
 					.catch(error => console.log("Error:", error))
