@@ -30,10 +30,11 @@ const getState = ({ getStore, setStore, getActions }) => {
 				return setStore({ contacts: filtersSecondContact });
 			},
 			addToStoreContacts: newcontact => {
+				console.log(newcontact);
 				const store = getStore();
 				console.log(store.contacts);
 				let array3 = store.contacts.concat([newcontact]);
-
+				console.log(array3);
 				setStore({ contacts: array3 });
 				return null;
 			}

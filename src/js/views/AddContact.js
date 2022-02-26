@@ -3,11 +3,7 @@ import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 export const AddContact = () => {
-	const [contactObject, setcontactObject] = useState({ full_name: "", email: "", phone: "", address: "" });
-	const [full_name, setfull_name] = useState("");
-	const [phone, setPhone] = useState("");
-	const [email, setEmail] = useState("");
-	const [address, setAddress] = useState("");
+	const [contactObject, setcontactObject] = useState({ full_name: "ethr", email: "", phone: "", address: "" });
 
 	const { store, actions } = useContext(Context);
 	return (
@@ -21,10 +17,8 @@ export const AddContact = () => {
 							type="text"
 							className="form-control"
 							placeholder="Full Name"
-							onChange={(
-								e //setcontactObject({ ...contactObject, full_name: event.target.value })
-							) => {
-								setfull_name(e.target.value);
+							onChange={e => {
+								setcontactObject({ ...contactObject, full_name: e.target.value });
 							}}
 						/>
 					</div>
@@ -34,10 +28,8 @@ export const AddContact = () => {
 							type="email"
 							className="form-control"
 							placeholder="Enter email"
-							onChange={(
-								e //setcontactObject({ ...contactObject, email: event.target.value })
-							) => {
-								setEmail(e.target.value);
+							onChange={e => {
+								setcontactObject({ ...contactObject, email: e.target.value });
 							}}
 						/>
 					</div>
@@ -47,10 +39,8 @@ export const AddContact = () => {
 							type="phone"
 							className="form-control"
 							placeholder="Enter phone"
-							onChange={(
-								e //setcontactObject({ ...contactObject, phone: event.target.value })
-							) => {
-								setPhone(e.target.value);
+							onChange={e => {
+								setcontactObject({ ...contactObject, phone: e.target.value });
 							}}
 						/>
 					</div>
@@ -60,10 +50,8 @@ export const AddContact = () => {
 							type="text"
 							className="form-control"
 							placeholder="Enter address"
-							onChange={(
-								e //setcontactObject({ ...contactObject, address: event.target.value })
-							) => {
-								setAddress(e.target.value);
+							onChange={e => {
+								setcontactObject({ ...contactObject, address: e.target.value });
 							}}
 						/>
 					</div>
@@ -71,12 +59,7 @@ export const AddContact = () => {
 						type="button"
 						className="btn btn-primary form-control"
 						onClick={() => {
-							setcontactObject({
-								full_name: full_name,
-								email: email,
-								phone: phone,
-								address: address
-							}).then(() => actions.addToStoreContacts(contactObject));
+							actions.addToStoreContacts(contactObject);
 						}}>
 						save
 					</button>
