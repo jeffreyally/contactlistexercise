@@ -28,7 +28,7 @@ export const Contacts = () => {
 					<ul className="list-group pull-down" id="contact-list">
 						{store.contacts.map((contact, indexfrommap) => {
 							//ID in each object, maybe pass as props?
-							console.log(contact.id);
+							console.log(contact.full_name, contact.id);
 							return (
 								<ContactCard
 									onDelete={() => setState({ showModal: true })}

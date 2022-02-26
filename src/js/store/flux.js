@@ -37,11 +37,11 @@ const getState = ({ getStore, setStore, getActions }) => {
 				});
 			},
 			addToStoreContacts: newcontact => {
-				//console.log(newcontact);
+				console.log(newcontact);
 				const store = getStore();
 				const actions = getActions();
 				//console.log( actions);
-				let array3 = store.contacts.concat([newcontact]);
+				let array3 = store.contacts.concat(newcontact);
 				//console.log(array3);
 				actions.postAContact(newcontact);
 
@@ -50,16 +50,17 @@ const getState = ({ getStore, setStore, getActions }) => {
 			},
 
 			postAContact: newcontact => {
-				// let sample = {
-				// 	full_name: "Dave Bradley",
-				// 	email: "GFSGBSFGRHGWRE$TRGRGRE@gmail.com",
-				// 	agenda_slug: "IWantANiceCodeBeer",
-				// 	address: "47568 NW 34ST, 33434 FL, USA",
-				// 	phone: "7864445566"
-				// };
+				console.log(newcontact);
+				let sample = {
+					full_name: newcontact[0].full_name,
+					email: newcontact[0].email,
+					agenda_slug: "IWantANiceCodeBeer",
+					address: newcontact[0].address,
+					phone: newcontact[0].phone
+				};
 				fetch("https://assets.breatheco.de/apis/fake/contact/", {
 					method: "POST",
-					body: JSON.stringify(newcontact), // data can be `string` or {object}!
+					body: JSON.stringify(sample), // data can be `string` or {object}!
 					headers: {
 						"Content-Type": "application/json"
 					}
@@ -75,19 +76,39 @@ const getState = ({ getStore, setStore, getActions }) => {
 			addEditedContactToStoreContacts: EditContactObject => {
 				var ID;
 				console.log(EditContactObject);
+				console.log(EditContactObject[0].id);
 				EditContactObject.map((item, index) => {
 					ID = item.id;
 				});
 				//console.log(ID);
 				const store = getStore();
+				const actions = getActions();
 				let contactcheck = store.contacts.filter((contact, index) => {
 					return contact.id != ID;
 				});
 
 				let finaledit = contactcheck.concat(EditContactObject);
-				console.log(store.contacts);
-
+				console.log(finaledit);
+				actions.updateOneContact(EditContactObject);
 				setStore({ contacts: finaledit });
+			},
+
+			updateOneContact: EditContactObject => {
+				console.log(EditContactObject);
+				fetch("https://assets.breatheco.de/apis/fake/contact/" + EditContactObject[0].id, {
+					method: "PUT",
+					body: JSON.stringify(EditContactObject), // data can be `string` or {object}!
+					headers: {
+						"Content-Type": "application/json"
+					}
+				})
+					.then(response => {
+						if (response.ok) {
+							console.log(response);
+							return response;
+						}
+					})
+					.catch(e => console.log(e, " THE ERROR"));
 			}
 		}
 	};
