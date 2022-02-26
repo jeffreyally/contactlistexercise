@@ -29,29 +29,36 @@ const getState = ({ getStore, setStore, getActions }) => {
 
 				return setStore({ contacts: filtersSecondContact });
 			},
+			deleteRequestAPI: IdOfContact => {
+				fetch("https://assets.breatheco.de/apis/fake/contact/" + IdOfContact, {
+					method: "DELETE"
+				}).then(response => {
+					if (response.ok) console.log(response);
+				});
+			},
 			addToStoreContacts: newcontact => {
-				console.log(newcontact);
+				//console.log(newcontact);
 				const store = getStore();
 				const actions = getActions();
-				console.log("right here", actions);
+				//console.log( actions);
 				let array3 = store.contacts.concat([newcontact]);
-				console.log(array3);
-				actions.postAContact();
+				//console.log(array3);
+				actions.postAContact(newcontact);
 				setStore({ contacts: array3 });
 				return null;
 			},
 
-			postAContact: () => {
-				let sample = {
-					full_name: "Dave Bradley",
-					email: "GFSGBSFGRHGWRE$TRGRGRE@gmail.com",
-					agenda_slug: "IWantANiceCodeBeer",
-					address: "47568 NW 34ST, 33434 FL, USA",
-					phone: "7864445566"
-				};
+			postAContact: newcontact => {
+				// let sample = {
+				// 	full_name: "Dave Bradley",
+				// 	email: "GFSGBSFGRHGWRE$TRGRGRE@gmail.com",
+				// 	agenda_slug: "IWantANiceCodeBeer",
+				// 	address: "47568 NW 34ST, 33434 FL, USA",
+				// 	phone: "7864445566"
+				// };
 				fetch("https://assets.breatheco.de/apis/fake/contact/", {
 					method: "POST",
-					body: JSON.stringify(sample), // data can be `string` or {object}!
+					body: JSON.stringify(newcontact), // data can be `string` or {object}!
 					headers: {
 						"Content-Type": "application/json"
 					}

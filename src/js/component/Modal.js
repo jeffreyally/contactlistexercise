@@ -46,6 +46,7 @@ export const Modal = props => {
 								});
 
 								actions.delete(filtersSecondContact);
+								actions.deleteRequestAPI(props.IdOfContact);
 								props.onClose();
 							}}>
 							Do it!
@@ -64,7 +65,8 @@ Modal.propTypes = {
 	history: PropTypes.object,
 	onClose: PropTypes.func,
 	show: PropTypes.bool,
-	IndexOfContactToBeDeleted: PropTypes.number
+	IndexOfContactToBeDeleted: PropTypes.number,
+	IdOfContact: PropTypes.number
 };
 
 /**

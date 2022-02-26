@@ -3,7 +3,13 @@ import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 export const AddContact = () => {
-	const [contactObject, setcontactObject] = useState({ full_name: "ethr", email: "", phone: "", address: "" });
+	const [contactObject, setcontactObject] = useState({
+		full_name: "",
+		email: "",
+		phone: "",
+		address: "",
+		agenda_slug: "IWantANiceCodeBeer"
+	});
 
 	const { store, actions } = useContext(Context);
 	return (

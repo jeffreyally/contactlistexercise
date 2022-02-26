@@ -8,7 +8,9 @@ export const ContactCard = ({
 	indexfrommap,
 	onDelete,
 	setIndexOfContactToBeDeleted,
-	IndexOfContactToBeDeleted
+	IndexOfContactToBeDeleted,
+	setIdOfContact,
+	contactID
 }) => {
 	const [state, setState] = useState({
 		//initialize state here
@@ -17,6 +19,7 @@ export const ContactCard = ({
 	var deleteAndSetID = indexfrommap => {
 		onDelete();
 		setIndexOfContactToBeDeleted(indexfrommap);
+		setIdOfContact(contactID);
 	};
 
 	return (
@@ -70,7 +73,9 @@ ContactCard.propTypes = {
 	setIndexOfContactToBeDeleted: PropTypes.func,
 	indexfrommap: PropTypes.number,
 	IndexOfContactToBeDeleted: PropTypes.number,
-	contactObject: PropTypes.object
+	contactObject: PropTypes.object,
+	contactID: PropTypes.number,
+	setIdOfContact: PropTypes.func
 };
 
 /**
