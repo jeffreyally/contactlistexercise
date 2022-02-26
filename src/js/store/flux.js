@@ -99,7 +99,8 @@ const getState = ({ getStore, setStore, getActions }) => {
 					email: EditContactObject[0].email,
 					agenda_slug: "IWantANiceCodeBeer",
 					address: EditContactObject[0].address,
-					phone: EditContactObject[0].phone
+					phone: EditContactObject[0].phone,
+					id: EditContactObject[0].id
 				};
 				console.log(EditContactObject);
 				fetch("https://assets.breatheco.de/apis/fake/contact/" + EditContactObject[0].id, {
