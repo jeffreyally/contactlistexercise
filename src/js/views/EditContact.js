@@ -5,7 +5,8 @@ export const EditContact = () => {
 	return (
 		<div className="container">
 			<div>
-				<h1 className="text-center mt-5">Add a new contact</h1>
+				<h1>I am the edit contact page</h1>
+				<h1 className="text-center mt-5">Edit an existing contact</h1>
 				<form>
 					<div className="form-group">
 						<label>Full Name</label>
