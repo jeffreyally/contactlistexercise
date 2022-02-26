@@ -1,5 +1,5 @@
-const getState = ({ getStore, setStore }) => {
-	//your agenda slug name: IWantANiceCodeBeer
+const getState = ({ getStore, setStore, getActions }) => {
+	//your API URL: "https://assets.breatheco.de/apis/fake/contact/agenda/IWantANiceCodeBeer"
 	return {
 		store: {
 			contacts: []
@@ -28,6 +28,14 @@ const getState = ({ getStore, setStore }) => {
 				console.log(filtersSecondContact);
 
 				return setStore({ contacts: filtersSecondContact });
+			},
+			addToStoreContacts: newcontact => {
+				const store = getStore();
+				console.log(store.contacts);
+				let array3 = store.contacts.concat([newcontact]);
+
+				setStore({ contacts: array3 });
+				return null;
 			}
 		}
 	};
