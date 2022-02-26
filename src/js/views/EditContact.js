@@ -4,24 +4,23 @@ import { Context } from "../store/appContext";
 import PropTypes from "prop-types";
 //will be similar to addcontact view
 export const EditContact = props => {
-	console.log(props.location.state.state);
 	console.log(props.location.state.contactObject.email);
 	console.log(typeof props.location.state.contactObject.email);
 
 	const [EditContactObject, setEditContactObject] = useState({
-		full_name: props.location.state.full_name,
-		email: props.location.state.email,
-		phone: props.location.state.phone,
-		address: props.location.state.address,
+		full_name: props.location.state.contactObject.full_name,
+		email: props.location.state.contactObject.email,
+		phone: props.location.state.contactObject.phone,
+		address: props.location.state.contactObject.address,
 		agenda_slug: "IWantANiceCodeBeer",
-		id: props.location.state.id
+		id: props.location.state.contactObject.id
 	});
 
 	const { store, actions } = useContext(Context);
 	return (
 		<div className="container">
 			<div>
-				<h1 className="text-center mt-5">Add a new contact</h1>
+				<h1 className="text-center mt-5">Edit An Existing Contact</h1>
 				<form>
 					<div className="form-group">
 						<label>Full Name</label>
@@ -71,7 +70,7 @@ export const EditContact = props => {
 						type="button"
 						className="btn btn-primary form-control"
 						onClick={() => {
-							actions.addToStoreContacts(EditContactObject);
+							console.log(EditContactObject);
 						}}>
 						save
 					</button>
