@@ -94,10 +94,17 @@ const getState = ({ getStore, setStore, getActions }) => {
 			},
 
 			updateOneContact: EditContactObject => {
+				let sample = {
+					full_name: EditContactObject[0].full_name,
+					email: EditContactObject[0].email,
+					agenda_slug: "IWantANiceCodeBeer",
+					address: EditContactObject[0].address,
+					phone: EditContactObject[0].phone
+				};
 				console.log(EditContactObject);
 				fetch("https://assets.breatheco.de/apis/fake/contact/" + EditContactObject[0].id, {
 					method: "PUT",
-					body: JSON.stringify(EditContactObject), // data can be `string` or {object}!
+					body: JSON.stringify(sample), // data can be `string` or {object}!
 					headers: {
 						"Content-Type": "application/json"
 					}
