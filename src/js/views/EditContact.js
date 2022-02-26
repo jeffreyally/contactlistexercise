@@ -4,8 +4,8 @@ import { Context } from "../store/appContext";
 import PropTypes from "prop-types";
 //will be similar to addcontact view
 export const EditContact = props => {
-	console.log(props.location.state.contactObject.email);
-	console.log(typeof props.location.state.contactObject.email);
+	//console.log(props.location.state.contactObject.email);
+	//console.log(typeof props.location.state.contactObject.email);
 
 	const [EditContactObject, setEditContactObject] = useState({
 		full_name: props.location.state.contactObject.full_name,

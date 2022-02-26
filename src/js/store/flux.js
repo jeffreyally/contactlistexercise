@@ -43,8 +43,8 @@ const getState = ({ getStore, setStore, getActions }) => {
 				//console.log( actions);
 				let array3 = store.contacts.concat([newcontact]);
 				//console.log(array3);
-				let testt = actions.postAContact(newcontact);
-				console.log(testt);
+				actions.postAContact(newcontact);
+
 				setStore({ contacts: array3 });
 				return null;
 			},
@@ -78,7 +78,16 @@ const getState = ({ getStore, setStore, getActions }) => {
 				EditContactObject.map((item, index) => {
 					ID = item.id;
 				});
-				console.log(ID);
+				//console.log(ID);
+				const store = getStore();
+				let contactcheck = store.contacts.filter((contact, index) => {
+					return contact.id != ID;
+				});
+
+				let finaledit = contactcheck.concat(EditContactObject);
+				console.log(store.contacts);
+
+				setStore({ contacts: finaledit });
 			}
 		}
 	};
