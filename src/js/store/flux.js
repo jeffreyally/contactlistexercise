@@ -43,7 +43,8 @@ const getState = ({ getStore, setStore, getActions }) => {
 				//console.log( actions);
 				let array3 = store.contacts.concat([newcontact]);
 				//console.log(array3);
-				actions.postAContact(newcontact);
+				let testt = actions.postAContact(newcontact);
+				console.log(testt);
 				setStore({ contacts: array3 });
 				return null;
 			},
@@ -64,9 +65,20 @@ const getState = ({ getStore, setStore, getActions }) => {
 					}
 				})
 					.then(response => {
-						if (response.ok) console.log(response);
+						if (response.ok) {
+							console.log(response);
+							return response;
+						}
 					})
 					.catch(e => console.log(e, " THE ERROR"));
+			},
+			addEditedContactToStoreContacts: EditContactObject => {
+				var ID;
+				console.log(EditContactObject);
+				EditContactObject.map((item, index) => {
+					ID = item.id;
+				});
+				console.log(ID);
 			}
 		}
 	};
