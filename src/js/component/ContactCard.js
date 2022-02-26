@@ -32,7 +32,7 @@ export const ContactCard = ({
 				<div className="col-12 col-sm-6 col-md-9 text-center text-sm-left">
 					<div className=" float-right">
 						{/* don't forget the syntax below */}
-						<Link to={{ pathname: "/edit", state: { state: contactObject } }}>
+						<Link to={{ pathname: "/edit", state: { contactObject } }}>
 							<button className="btn">
 								<i className="fas fa-pencil-alt mr-3" />
 							</button>

@@ -4,8 +4,9 @@ import { Context } from "../store/appContext";
 import PropTypes from "prop-types";
 //will be similar to addcontact view
 export const EditContact = props => {
-	console.log(props.location.state.email);
-	console.log(typeof props.location.state.email);
+	console.log(props.location.state.state);
+	console.log(props.location.state.contactObject.email);
+	console.log(typeof props.location.state.contactObject.email);
 
 	const [EditContactObject, setEditContactObject] = useState({
 		full_name: props.location.state.full_name,
@@ -27,7 +28,7 @@ export const EditContact = props => {
 						<input
 							type="text"
 							className="form-control"
-							placeholder={props.location.state.full_name}
+							placeholder={props.location.state.contactObject.full_name}
 							onChange={e => {
 								setEditContactObject({ ...EditContactObject, full_name: e.target.value });
 							}}
@@ -38,7 +39,7 @@ export const EditContact = props => {
 						<input
 							type="email"
 							className="form-control"
-							placeholder="meh"
+							placeholder={props.location.state.contactObject.email}
 							onChange={e => {
 								setEditContactObject({ ...EditContactObject, email: e.target.value });
 							}}
@@ -49,7 +50,7 @@ export const EditContact = props => {
 						<input
 							type="phone"
 							className="form-control"
-							placeholder={props.location.state.phone}
+							placeholder={props.location.state.contactObject.phone}
 							onChange={e => {
 								setEditContactObject({ ...EditContactObject, phone: e.target.value });
 							}}
@@ -60,7 +61,7 @@ export const EditContact = props => {
 						<input
 							type="text"
 							className="form-control"
-							placeholder="add"
+							placeholder={props.location.state.contactObject.address}
 							onChange={e => {
 								setEditContactObject({ ...EditContactObject, address: e.target.value });
 							}}
