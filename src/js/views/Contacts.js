@@ -16,6 +16,7 @@ export const Contacts = () => {
 	// store.contacts.map(contact => {
 	// 	console.log(contact);
 	// });
+
 	return (
 		<div className="container">
 			<div>
