@@ -31,7 +31,8 @@ export const ContactCard = ({
 				</div>
 				<div className="col-12 col-sm-6 col-md-9 text-center text-sm-left">
 					<div className=" float-right">
-						<Link to="/edit">
+						{/* don't forget the syntax below */}
+						<Link to={{ pathname: "/edit", state: { state: contactObject } }}>
 							<button className="btn">
 								<i className="fas fa-pencil-alt mr-3" />
 							</button>
@@ -77,7 +78,8 @@ ContactCard.propTypes = {
 	indexfrommap: PropTypes.number,
 	IndexOfContactToBeDeleted: PropTypes.number,
 	contactObject: PropTypes.object,
-	contactID: PropTypes.number,
+	//below is a number but it's in the form of a string
+	contactID: PropTypes.string,
 	setIdOfContact: PropTypes.func
 };
 
