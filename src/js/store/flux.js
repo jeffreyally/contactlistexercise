@@ -11,7 +11,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 				fetch("https://assets.breatheco.de/apis/fake/contact/agenda/IWantANiceCodeBeer")
 					.then(response => {
 						if (!response.ok) {
-							console.log("Check status");
+							console.log(response);
 						}
 						//console.log(response);
 						return response.json();

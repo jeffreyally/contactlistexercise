@@ -15,7 +15,7 @@ export const EditContact = props => {
 		agenda_slug: "IWantANiceCodeBeer",
 		id: props.location.state.contactObject.id
 	});
-	console.log(EditContactObject);
+
 	const { store, actions } = useContext(Context);
 	return (
 		<div className="container">
