@@ -70,7 +70,7 @@ export const EditContact = props => {
 						type="button"
 						className="btn btn-primary form-control"
 						onClick={() => {
-							actions.addEditedContactToStoreContacts([EditContactObject]);
+							actions.updateOneContact([EditContactObject]);
 						}}>
 						save
 					</button>
