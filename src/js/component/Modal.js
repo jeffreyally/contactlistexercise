@@ -15,7 +15,6 @@ export const Modal = props => {
 						<h5 className="modal-title">Are you sure?</h5>
 						{props.onClose ? (
 							<button
-								//copy onClick function to "oh no option"
 								onClick={() => props.onClose()}
 								type="button"
 								className="close"
@@ -39,13 +38,6 @@ export const Modal = props => {
 							className="btn btn-secondary"
 							data-dismiss="modal"
 							onClick={() => {
-								//props.id
-
-								// let filtersSecondContact = store.contacts.filter((contact, index) => {
-								// 	return index != props.IndexOfContactToBeDeleted;
-								// });
-
-								//actions.delete(filtersSecondContact);
 								actions.deleteRequestAPI(props.IdOfContact);
 								props.onClose();
 							}}>

@@ -5,8 +5,6 @@ const getState = ({ getStore, setStore, getActions }) => {
 			contacts: []
 		},
 		actions: {
-			//(Arrow) Functions that update the Store
-			// Remember to use the scope: scope.state.store & scope.setState()
 			loadcharacters: () =>
 				fetch("https://assets.breatheco.de/apis/fake/contact/agenda/IWantANiceCodeBeer")
 					.then(response => {
@@ -17,7 +15,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 						return response.json();
 					})
 					.then(responseJSON => {
-						console.log(responseJSON);
+						console.log("response", responseJSON);
 						setStore({ contacts: responseJSON });
 					})
 					.catch(error => console.log("Error:", error)),
@@ -43,7 +41,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 				};
 				fetch("https://assets.breatheco.de/apis/fake/contact/", {
 					method: "POST",
-					body: JSON.stringify(sample), // data can be `string` or {object}!
+					body: JSON.stringify(sample),
 					headers: {
 						"Content-Type": "application/json"
 					}
@@ -53,7 +51,6 @@ const getState = ({ getStore, setStore, getActions }) => {
 							console.log(response);
 							const actions = getActions();
 
-							console.log("testing");
 							actions.loadcharacters();
 
 							return response;
@@ -61,11 +58,6 @@ const getState = ({ getStore, setStore, getActions }) => {
 					})
 					.catch(e => console.log(e, " THE ERROR"));
 				const actions = getActions();
-
-				console.log("testing");
-				actions.loadcharacters();
-
-				console.log("testing");
 			},
 
 			updateOneContact: EditContactObject => {
@@ -80,7 +72,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 				console.log(EditContactObject);
 				fetch("https://assets.breatheco.de/apis/fake/contact/" + EditContactObject[0].id, {
 					method: "PUT",
-					body: JSON.stringify(sample), // data can be `string` or {object}!
+					body: JSON.stringify(sample),
 					headers: {
 						"Content-Type": "application/json"
 					}

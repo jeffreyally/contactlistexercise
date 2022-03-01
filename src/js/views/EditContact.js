@@ -2,11 +2,8 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import PropTypes from "prop-types";
-//will be similar to addcontact view
-export const EditContact = props => {
-	//console.log(props.location.state.contactObject.email);
-	//console.log(typeof props.location.state.contactObject.email);
 
+export const EditContact = props => {
 	const [EditContactObject, setEditContactObject] = useState({
 		full_name: props.location.state.contactObject.full_name,
 		email: props.location.state.contactObject.email,

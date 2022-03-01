@@ -8,8 +8,7 @@ export const ContactCard = ({
 	contactObject,
 	indexfrommap,
 	onDelete,
-	setIndexOfContactToBeDeleted,
-	IndexOfContactToBeDeleted,
+
 	setIdOfContact,
 	contactID
 }) => {
@@ -19,7 +18,7 @@ export const ContactCard = ({
 
 	var deleteAndSetID = indexfrommap => {
 		onDelete();
-		//setIndexOfContactToBeDeleted(indexfrommap);
+
 		setIdOfContact(contactID);
 	};
 
@@ -31,7 +30,7 @@ export const ContactCard = ({
 				</div>
 				<div className="col-12 col-sm-6 col-md-9 text-center text-sm-left">
 					<div className=" float-right">
-						{/* don't forget the syntax below */}
+						{/* Link button below was a great refresher with this specific syntax */}
 						<Link to={{ pathname: "/edit", state: { contactObject } }}>
 							<button className="btn">
 								<i className="fas fa-pencil-alt mr-3" />
@@ -74,9 +73,7 @@ export const ContactCard = ({
 ContactCard.propTypes = {
 	history: PropTypes.object,
 	onDelete: PropTypes.func,
-	setIndexOfContactToBeDeleted: PropTypes.func,
 	indexfrommap: PropTypes.number,
-	IndexOfContactToBeDeleted: PropTypes.number,
 	contactObject: PropTypes.object,
 	//below is a number but it's in the form of a string
 	contactID: PropTypes.string,
@@ -90,5 +87,3 @@ ContactCard.propTypes = {
 ContactCard.defaultProps = {
 	onDelete: null
 };
-// setID(id)
-//
