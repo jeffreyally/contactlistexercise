@@ -22,13 +22,6 @@ const getState = ({ getStore, setStore, getActions }) => {
 					})
 					.catch(error => console.log("Error:", error)),
 
-			delete: filtersSecondContact => {
-				const store = getStore();
-
-				console.log(filtersSecondContact);
-
-				return setStore({ contacts: filtersSecondContact });
-			},
 			deleteRequestAPI: IdOfContact => {
 				fetch("https://assets.breatheco.de/apis/fake/contact/" + IdOfContact, {
 					method: "DELETE"
@@ -37,18 +30,6 @@ const getState = ({ getStore, setStore, getActions }) => {
 					var actions = getActions();
 					actions.loadcharacters();
 				});
-			},
-			addToStoreContacts: newcontact => {
-				console.log(newcontact);
-				const store = getStore();
-				const actions = getActions();
-				//console.log( actions);
-				//let array3 = store.contacts.concat(newcontact);
-				//console.log(array3);
-				actions.postAContact(newcontact);
-
-				//setStore({ contacts: array3 });
-				return null;
 			},
 
 			postAContact: newcontact => {
@@ -85,26 +66,6 @@ const getState = ({ getStore, setStore, getActions }) => {
 				actions.loadcharacters();
 
 				console.log("testing");
-			},
-			addEditedContactToStoreContacts: EditContactObject => {
-				// var ID;
-				// console.log(EditContactObject);
-				// console.log(EditContactObject[0].id);
-				// EditContactObject.map((item, index) => {
-				// 	ID = item.id;
-				// });
-				// //console.log(ID);
-				// const store = getStore();
-				const actions = getActions();
-				// let contactcheck = store.contacts.filter((contact, index) => {
-				// 	return contact.id != ID;
-				// });
-
-				// let finaledit = contactcheck.concat(EditContactObject);
-				// console.log(finaledit);
-
-				// setStore({ contacts: finaledit });
-				actions.updateOneContact(EditContactObject);
 			},
 
 			updateOneContact: EditContactObject => {
