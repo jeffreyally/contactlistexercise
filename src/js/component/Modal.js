@@ -45,7 +45,7 @@ export const Modal = props => {
 									return index != props.IndexOfContactToBeDeleted;
 								});
 
-								actions.delete(filtersSecondContact);
+								//actions.delete(filtersSecondContact);
 								actions.deleteRequestAPI(props.IdOfContact);
 								props.onClose();
 							}}>

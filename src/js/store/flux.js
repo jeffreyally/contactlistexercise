@@ -34,6 +34,8 @@ const getState = ({ getStore, setStore, getActions }) => {
 					method: "DELETE"
 				}).then(response => {
 					if (response.ok) console.log(response);
+					var actions = getActions();
+					actions.loadcharacters();
 				});
 			},
 			addToStoreContacts: newcontact => {
@@ -68,6 +70,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 					.then(response => {
 						if (response.ok) {
 							console.log(response);
+							store.getActions.loadcharacters();
 							return response;
 						}
 					})
@@ -113,6 +116,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 					.then(response => {
 						if (response.ok) {
 							console.log(response);
+							store.getActions.loadcharacters();
 							return response;
 						}
 					})
