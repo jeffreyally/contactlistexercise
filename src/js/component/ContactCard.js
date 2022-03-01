@@ -19,7 +19,7 @@ export const ContactCard = ({
 
 	var deleteAndSetID = indexfrommap => {
 		onDelete();
-		setIndexOfContactToBeDeleted(indexfrommap);
+		//setIndexOfContactToBeDeleted(indexfrommap);
 		setIdOfContact(contactID);
 	};
 

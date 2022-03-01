@@ -8,7 +8,7 @@ export const Contacts = () => {
 	const [state, setState] = useState({
 		showModal: false
 	});
-	const [IndexOfContactToBeDeleted, setIndexOfContactToBeDeleted] = useState(null);
+	//const [IndexOfContactToBeDeleted, setIndexOfContactToBeDeleted] = useState(null);
 	const [IdOfContact, setIdOfContact] = useState(null);
 
 	const { store, actions } = useContext(Context);
@@ -36,8 +36,8 @@ export const Contacts = () => {
 									contactObject={contact}
 									key={indexfrommap}
 									indexfrommap={indexfrommap}
-									setIndexOfContactToBeDeleted={setIndexOfContactToBeDeleted}
-									IndexOfContactToBeDeleted={IndexOfContactToBeDeleted}
+									//setIndexOfContactToBeDeleted={setIndexOfContactToBeDeleted}
+									//IndexOfContactToBeDeleted={IndexOfContactToBeDeleted}
 									contactID={contact.id}
 									setIdOfContact={setIdOfContact}
 								/>
@@ -50,7 +50,7 @@ export const Contacts = () => {
 				<Modal
 					show={state.showModal}
 					onClose={() => setState({ showModal: false })}
-					IndexOfContactToBeDeleted={IndexOfContactToBeDeleted}
+					//IndexOfContactToBeDeleted={IndexOfContactToBeDeleted}
 					IdOfContact={IdOfContact}
 				/>
 			</div>

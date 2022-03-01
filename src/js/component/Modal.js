@@ -41,9 +41,9 @@ export const Modal = props => {
 							onClick={() => {
 								//props.id
 
-								let filtersSecondContact = store.contacts.filter((contact, index) => {
-									return index != props.IndexOfContactToBeDeleted;
-								});
+								// let filtersSecondContact = store.contacts.filter((contact, index) => {
+								// 	return index != props.IndexOfContactToBeDeleted;
+								// });
 
 								//actions.delete(filtersSecondContact);
 								actions.deleteRequestAPI(props.IdOfContact);
