@@ -87,23 +87,24 @@ const getState = ({ getStore, setStore, getActions }) => {
 				console.log("testing");
 			},
 			addEditedContactToStoreContacts: EditContactObject => {
-				var ID;
-				console.log(EditContactObject);
-				console.log(EditContactObject[0].id);
-				EditContactObject.map((item, index) => {
-					ID = item.id;
-				});
-				//console.log(ID);
-				const store = getStore();
+				// var ID;
+				// console.log(EditContactObject);
+				// console.log(EditContactObject[0].id);
+				// EditContactObject.map((item, index) => {
+				// 	ID = item.id;
+				// });
+				// //console.log(ID);
+				// const store = getStore();
 				const actions = getActions();
-				let contactcheck = store.contacts.filter((contact, index) => {
-					return contact.id != ID;
-				});
+				// let contactcheck = store.contacts.filter((contact, index) => {
+				// 	return contact.id != ID;
+				// });
 
-				let finaledit = contactcheck.concat(EditContactObject);
-				console.log(finaledit);
+				// let finaledit = contactcheck.concat(EditContactObject);
+				// console.log(finaledit);
+
+				// setStore({ contacts: finaledit });
 				actions.updateOneContact(EditContactObject);
-				setStore({ contacts: finaledit });
 			},
 
 			updateOneContact: EditContactObject => {
@@ -126,7 +127,8 @@ const getState = ({ getStore, setStore, getActions }) => {
 					.then(response => {
 						if (response.ok) {
 							console.log(response);
-							store.getActions.loadcharacters();
+							var actions = getActions();
+							actions.loadcharacters();
 							return response;
 						}
 					})

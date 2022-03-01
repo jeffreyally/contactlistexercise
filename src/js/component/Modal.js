@@ -66,7 +66,7 @@ Modal.propTypes = {
 	onClose: PropTypes.func,
 	show: PropTypes.bool,
 	IndexOfContactToBeDeleted: PropTypes.number,
-	IdOfContact: PropTypes.number
+	IdOfContact: PropTypes.string
 };
 
 /**
