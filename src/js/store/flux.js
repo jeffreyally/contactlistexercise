@@ -5,7 +5,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 			contacts: []
 		},
 		actions: {
-			loadcharacters: () =>
+			getRequestForContacts: () =>
 				fetch("https://assets.breatheco.de/apis/fake/contact/agenda/IWantANiceCodeBeer")
 					.then(response => {
 						if (!response.ok) {
@@ -20,17 +20,17 @@ const getState = ({ getStore, setStore, getActions }) => {
 					})
 					.catch(error => console.log("Error:", error)),
 
-			deleteRequestAPI: IdOfContact => {
+			deleteRequest: IdOfContact => {
 				fetch("https://assets.breatheco.de/apis/fake/contact/" + IdOfContact, {
 					method: "DELETE"
 				}).then(response => {
 					if (response.ok) console.log(response);
 					var actions = getActions();
-					actions.loadcharacters();
+					actions.getRequestForContacts();
 				});
 			},
 
-			postAContact: newcontact => {
+			postRequest: newcontact => {
 				console.log(newcontact);
 				let sample = {
 					full_name: newcontact[0].full_name,
@@ -51,7 +51,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 							console.log(response);
 							const actions = getActions();
 
-							actions.loadcharacters();
+							actions.getRequestForContacts();
 
 							return response;
 						}
@@ -60,7 +60,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 				const actions = getActions();
 			},
 
-			updateOneContact: EditContactObject => {
+			updateOneContactWithPutRequest: EditContactObject => {
 				let sample = {
 					full_name: EditContactObject[0].full_name,
 					email: EditContactObject[0].email,
@@ -81,7 +81,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 						if (response.ok) {
 							console.log(response);
 							var actions = getActions();
-							actions.loadcharacters();
+							actions.getRequestForContacts();
 							return response;
 						}
 					})

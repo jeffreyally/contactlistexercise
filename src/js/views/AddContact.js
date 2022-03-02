@@ -65,7 +65,7 @@ export const AddContact = () => {
 						type="button"
 						className="btn btn-primary form-control"
 						onClick={() => {
-							actions.postAContact([contactObject]);
+							actions.postRequest([contactObject]);
 						}}>
 						save
 					</button>

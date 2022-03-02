@@ -16,9 +16,8 @@ export const ContactCard = ({
 		//initialize state here
 	});
 
-	var deleteAndSetID = indexfrommap => {
+	var ShowModalandSetIDofContact = () => {
 		onDelete();
-
 		setIdOfContact(contactID);
 	};
 
@@ -36,7 +35,7 @@ export const ContactCard = ({
 								<i className="fas fa-pencil-alt mr-3" />
 							</button>
 						</Link>
-						<button className="btn" onClick={() => deleteAndSetID(indexfrommap)}>
+						<button className="btn" onClick={() => ShowModalandSetIDofContact()}>
 							<i className="fas fa-trash-alt" />
 						</button>
 					</div>
