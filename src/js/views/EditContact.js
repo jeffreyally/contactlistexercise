@@ -24,7 +24,8 @@ export const EditContact = props => {
 						<input
 							type="text"
 							className="form-control"
-							placeholder={props.location.state.contactObject.full_name}
+							value={EditContactObject.full_name}
+							//placeholder={props.location.state.contactObject.full_name}
 							onChange={e => {
 								setEditContactObject({ ...EditContactObject, full_name: e.target.value });
 							}}
@@ -35,7 +36,8 @@ export const EditContact = props => {
 						<input
 							type="email"
 							className="form-control"
-							placeholder={props.location.state.contactObject.email}
+							value={EditContactObject.email}
+							//placeholder={props.location.state.contactObject.email}
 							onChange={e => {
 								setEditContactObject({ ...EditContactObject, email: e.target.value });
 							}}
@@ -46,7 +48,8 @@ export const EditContact = props => {
 						<input
 							type="phone"
 							className="form-control"
-							placeholder={props.location.state.contactObject.phone}
+							value={EditContactObject.phone}
+							//placeholder={props.location.state.contactObject.phone}
 							onChange={e => {
 								setEditContactObject({ ...EditContactObject, phone: e.target.value });
 							}}
@@ -57,7 +60,8 @@ export const EditContact = props => {
 						<input
 							type="text"
 							className="form-control"
-							placeholder={props.location.state.contactObject.address}
+							value={EditContactObject.address}
+							//placeholder={props.location.state.contactObject.address}
 							onChange={e => {
 								setEditContactObject({ ...EditContactObject, address: e.target.value });
 							}}
